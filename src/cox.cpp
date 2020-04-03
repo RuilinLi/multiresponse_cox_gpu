@@ -248,7 +248,7 @@ Rcpp::List solve_path(const Rcpp::List & X_list,
                 // This block are the line search conditions
                 if(abs((cox_val_next - cox_val)/fmax(1.0, abs(cox_val_next))) > tol){
                     rhs_ls = cox_val + ls_stop_v1(dev_param, step_size,K,p);
-                    stop = (cox_val_next <= rhs_ls);   
+                    stop = (cox_val_next <= rhs_ls);
                 } else 
                 {
                     get_gradient(dev_cache,
@@ -277,7 +277,7 @@ Rcpp::List solve_path(const Rcpp::List & X_list,
             diff = max_diff(dev_param, K, p);
             if (diff < eps)
             {
-                std::cout << "convergence baed on parameter change reached in " << i <<" iterations\n";
+                std::cout << "convergence based on parameter change reached in " << i <<" iterations\n";
                 std::cout << "current step size is " << step_size << std::endl;
                 gettimeofday(&end, NULL);
                 double delta  = ((end.tv_sec  - start.tv_sec) * 1000000u + end.tv_usec - start.tv_usec) / 1.e6;
